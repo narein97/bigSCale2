@@ -440,7 +440,7 @@ setMethod(f="setDCT",
               dummy$v[,k]=dummy$v[,k]*dummy$d[k]
             
             print('Computing t-SNE and UMAP...')
-            tsne=Rtsne::Rtsne(X = dummy$v,normalize = FALSE,pca = FALSE)# transforming to full matrix
+            tsne=Rtsne::Rtsne(X = dummy$v,normalize = FALSE,check_duplicates = FALSE,pca = FALSE)# transforming to full matrix
             umap=umap::umap(d = dummy$v)
             reducedDims(object)$TSNE=tsne$Y
             reducedDims(object)$UMAP=umap$layout
